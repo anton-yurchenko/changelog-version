@@ -1,0 +1,10 @@
+.github/
+.vscode/
+action.yml
+.gitignore
+.dockerignore
+README.md
+CHANGELOG.md
+coverage.txt
+Dockerfile
+Makefile

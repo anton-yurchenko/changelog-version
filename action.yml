@@ -1,0 +1,8 @@
+name: "Create Changelog Version"
+description: "Create new version out of an unreleased section in changelog file"
+branding:
+  icon: "file-text"
+  color: "green"
+runs:
+  using: "docker"
+  image: "Dockerfile"
