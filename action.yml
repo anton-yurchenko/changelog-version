@@ -1,4 +1,4 @@
-name: "Create Changelog Version"
+name: "Release Changelog Version"
 description: "Create new version out of an unreleased section in changelog file"
 branding:
   icon: "file-text"
