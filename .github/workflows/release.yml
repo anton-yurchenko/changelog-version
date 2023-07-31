@@ -39,7 +39,7 @@ jobs:
           name: release
           fail_ci_if_error: false
 
-  codeql:
+  analyze:
     name: Analyze
     runs-on: ubuntu-latest
     timeout-minutes: 360
@@ -62,12 +62,15 @@ jobs:
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v2
         with:
-          category: "/language:go"        
+          category: "/language:go"  
+      
+      - name: Go Vulnerability Check
+        uses: Templum/govulncheck-action@v1
 
   release:
     name: Release
     runs-on: ubuntu-latest
-    needs: [test, codeql]
+    needs: [test, analyze]
     env:
       APP_NAME: changelog-version
     steps:
