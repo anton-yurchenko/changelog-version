@@ -39,9 +39,13 @@ func new() (*app, error) {
 		return nil, fmt.Errorf("invalid semantic version (make sure to add a 'v' prefix: vX.X.X)")
 	}
 
-	u, err := strconv.ParseBool(os.Getenv("UPDATE_TAGS"))
-	if err != nil {
-		return nil, utils.Wrap("error parsing UPDATE_TAGS environmental variable: %s", err)
+	var u bool
+	if os.Getenv("UPDATE_TAGS") != "" {
+		var err error
+		u, err = strconv.ParseBool(os.Getenv("UPDATE_TAGS"))
+		if err != nil {
+			return nil, utils.Wrap("error parsing UPDATE_TAGS environmental variable: %s", err)
+		}
 	}
 
 	g, err := repository.New(os.Getenv("GITHUB_TOKEN"), os.Getenv("GITHUB_ACTOR"))
