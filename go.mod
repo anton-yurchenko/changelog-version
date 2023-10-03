@@ -1,6 +1,6 @@
 module changelog-version
 
-go 1.21.0
+go 1.21
 
 require (
 	github.com/anton-yurchenko/go-changelog v1.1.0
